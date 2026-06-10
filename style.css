@@ -79,6 +79,52 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+/* --- ESTILOS EXCLUSIVOS PARA LA SECCIÓN TALLER --- */
+
+/* Dale un aire premium al copete de la sección */
+.tracking-wider {
+  letter-spacing: 0.15em;
+  font-size: 0.85rem;
+  color: #b5a46d !important; /* Un tono dorado sutil para el "Aprende el Oficio" */
+}
+
+/* Diseñamos el cuadradito de los íconos para que combine con la estética de tu web */
+.bg-light {
+  background-color: #f8f9fa !important;
+  transition: all 0.3s ease;
+}
+
+/* El color del ícono (martillo, reloj, etc.) */
+.text-warning {
+  color: #b5a46d !important; /* Reemplazamos el amarillo patito de Bootstrap por tu dorado */
+}
+
+/* Efecto Hover: Cuando pasás el mouse por arriba de cada característica, hace un efecto sutil */
+.d-flex:hover .bg-light {
+  background-color: #111 !important; /* El fondo se vuelve oscuro */
+}
+.d-flex:hover .text-warning {
+  color: #fff !important; /* El ícono se vuelve blanco */
+}
+
+/* Ajuste de opacidad para el cartelito flotante de la foto */
+.opacity-90 {
+  opacity: 0.9;
+}
+
+/* Botón personalizado para el taller (si no querés el botón negro común) */
+.btn-dark {
+  background-color: #111;
+  border: 1px solid #111;
+  transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+  background-color: transparent;
+  color: #111;
+  border-color: #111;
+  transform: translateY(-2px); /* Se eleva un milímetro al apoyar el mouse */
+}
 
 /* ========================================== */
 /* 5. SECCIÓN: NUESTRA ESENCIA               */
@@ -169,7 +215,7 @@ body {
 }
 
 /* ========================================== */
-/* 8. NUEVO FOOTER CLARO Y MINIMALISTA       */
+/* 8. FOOTER CLARO Y MINIMALISTA       */
 /* ========================================== */
 .footer-claro {
   background-color: #ffffff; /* Fondo blanco puro para que contraste suave con el crema del fondo */
@@ -213,20 +259,33 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* Mapa de Google */
-.mapa-contenedor iframe {
-  border: 1px solid #333333 !important;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
+/* ========================================== */
+/* EFECTOS PARA EL CONTENEDOR DEL MAPA        */
+/* ========================================== */
+
+/* Seleccionamos el iframe dentro del contenedor y le damos una transición suave */
+.map-container iframe {
+  transition: filter 0.4s ease, transform 0.4s ease;
+  filter: grayscale(20%) contrast(95%); /* Le damos un toque sutil artístico por defecto */
 }
 
-.mapa-contenedor iframe:hover {
-  opacity: 1;
+/* Seleccionamos la etiqueta flotante y le damos transición */
+.map-container .position-absolute {
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.main-footer hr {
-  border-top: 1px solid #333333;
-  opacity: 1;
+/* EFECTO HOVER: Cuando pasamos el mouse por el CONTENEDOR... */
+
+/* 1. El mapa se aclara por completo y hace un zoom casi imperceptible muy pro */
+.map-container:hover iframe {
+  filter: grayscale(0%) contrast(100%);
+  transform: scale(1.02);
+}
+
+/* 2. La etiqueta de "Nuestro Taller" cambia su fondo al color dorado de la joyería */
+.map-container:hover .position-absolute {
+  background-color: #b8860b !important; /* Cambia a tu dorado */
+  transform: translateY(-5px); /* Se eleva un poquito */
 }
 
 /* ========================================== */
@@ -241,3 +300,18 @@ body {
     padding: 2rem !important; /* Ajusta los espacios del texto en móviles */
   }
 }
+
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: 1.5rem; /* El nombre de la joyería se achica en móviles */
+  }
+  
+  .nav-link {
+    font-size: 1rem; /* Los links del menú también se achican */
+    margin-left: 10px;
+  }
+  
+  .product-card img {
+    height: 200px; /* Las imágenes de los productos se hacen más pequeñas en móviles */
+  }
+} 
